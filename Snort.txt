@@ -1,0 +1,13 @@
+Snort
+
+
+
+Rules file : /etc/snort/rules/local.rules
+
+Rule example :
+
+drop tct any any <> any any (msg: "Anything"; sid: 1000005; rev: 1;)
+
+snort in sniffer mode : 
+
+snort -c /etc/snort/snort.conf -q -Q --daq afpacket -i eth0:eth1 -A full
