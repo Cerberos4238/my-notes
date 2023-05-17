@@ -1,0 +1,44 @@
+HTML file path :
+
+/var/www/folder_created/index.html
+
+Apache configuration file:
+
+/etc/apache2/sites-available
+Conf file example :
+
+For HTTP :
+
+<VirtualHost *:80>
+
+	DocumentRoot /var/www/folder_created
+	ServerName serverName
+
+#HTTPS Redirection:
+
+	Redirect permanent / https://website_name
+
+</VirtualHost>
+
+For HTTPS :
+
+<VirtualHost *:443>
+
+	DocumentRoot /var/www/folder_created
+	ServerName serverName
+
+	SSLEngine on
+	SSLCertificateKeyFile /etc/ssl/private/certificate_name.key
+	SSLCertificatFile /etc/ssl/certs-auto/certificate_name.cert
+	SSLProtocol all -SSLv3
+
+</VirtualHost>
+
+To see listening ports on apache:
+
+ss -lntp
+
+TLS Configuration for HTTPS :
+
+/etc/ssl
+( if needed you can create certs-auto and reqs folders )
